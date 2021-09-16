@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "gulp-clean-css": "^4.2.0",
-    "gulp-imagemin": "^6.1.1",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-imagemin": "^7.1.0",
     "gulp-uglify": "^3.0.2",
-    "gulp-uglify-es": "^2.0.0",
-    "npm": "^6.10.1"
+    "gulp-uglify-es": "^3.0.0",
+    "npm": "^7.23.0"
   },
   "devDependencies": {
     "gulp": "^4.0.2"
