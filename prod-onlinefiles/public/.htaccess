@@ -23,15 +23,12 @@ RewriteEngine on
 
 # Remove trailing dot
 RewriteCond %{HTTP_HOST} ^(.+?)\.$
-RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301,NE]
+RewriteRule ^ %{REQUEST_SCHEME}://%1%{REQUEST_URI} [L,R=301,NE]
 
 # Remove trailing slash
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI} ^(.+?)/+$
-RewriteRule . %1 [R=301,L]
-
-RewriteCond %{HTTP_HOST} !^www\.
-RewriteRule (.*) https://www.%{HTTP_HOST}/$1 [R=301,L]
+RewriteRule . %{REQUEST_SCHEME}://%{HTTP_HOST}%1 [R=301,L]
 
 RewriteCond %{HTTPS} off
 RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
