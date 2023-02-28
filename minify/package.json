@@ -8,7 +8,7 @@
     "gulp-imagemin": "^7.1.0",
     "gulp-uglify": "^3.0.2",
     "gulp-uglify-es": "^3.0.0",
-    "npm": "^7.23.0"
+    "npm": "^9.5.1"
   },
   "devDependencies": {
     "gulp": "^4.0.2"
