@@ -3,8 +3,7 @@ var uglifyes = require('gulp-uglify-es').default;
 var uglyComposer = require('gulp-uglify/composer');
 var imagemin = require('gulp-imagemin');
 var uglify = uglyComposer(uglifyes, console);
-//var csso = require('gulp-csso');
-let cleanCSS = require('gulp-clean-css');
+var exec = require('child_process').exec;
 
 gulp.task('uglify-js', function () {
 	return gulp.src(['../target/public/assets/**/*.js', '!../target/public/assets/**/+(thirdparty|dist)/**', '!../target/public/assets/**/*.js'])
@@ -12,27 +11,19 @@ gulp.task('uglify-js', function () {
 			.pipe(gulp.dest('../target/public/assets'));
 });
 
-//gulp.task('minify-css', function (){
-//	return gulp.src('../target/public/assets/**/*.css').pipe(csso({
-//        restructure: false,
-//        sourceMap: false,
-//        debug: true
-//    })).pipe(gulp.dest('../target/public/assets'));
-//});
+gulp.task('minify-css', (cb) => {
+	let cmd = 'npx cleancss --batch --batch-suffix "" "../target/public/assets/**/*.css"';
+	exec(cmd, function (err, stdout, stderr) {
+		console.log(stdout);
+		console.error(stderr);
+		cb(err);
+	});
+});
 
 gulp.task('minify-images', () =>
 	gulp.src(['../target/public/assets/**/*.png', '../target/public/assets/**/*.jpg', '../target/public/assets/**/*.jpeg'])
 		.pipe(imagemin())
 		.pipe(gulp.dest('../target/public/assets'))
 );
-
-gulp.task('minify-css', () => {
-	return gulp.src(['../target/public/assets/**/*.css', '!../target/public/assets/**/+(thirdparty|dist)/**', '!../target/public/assets/**/*.min.css'])
-			.pipe(cleanCSS({debug: true}, (details) => {
-	  			console.log(`${details.name}: ${details.stats.originalSize}`);
-	  			console.log(`${details.name}: ${details.stats.minifiedSize}`);
-	  		}))
-	  		.pipe(gulp.dest('../target/public/assets'));
-});
 
 gulp.task('minify', gulp.parallel('uglify-js', 'minify-css', 'minify-images'));
