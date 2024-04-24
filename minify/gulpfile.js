@@ -8,8 +8,7 @@ var uglify = uglyComposer(uglifyes, console);
 
 
 gulp.task('uglify-js', () => {
-	return gulp.src(['../target/public/assets/**/*.js', '!../target/public/assets/**/+(thirdparty|dist)/**',
-		'!../target/public/assets/vgc/app/**', '!../target/public/assets/**/*.min.js'])
+	return gulp.src(['../target/public/assets/**/*.js', '!../target/public/assets/**/+(thirdparty|dist)/**', '!../target/public/assets/**/*.min.js'])
 			.pipe(uglify({ keep_classnames: true, keep_fnames: true }))
 			.pipe(gulp.dest('../target/public/assets'));
 });
