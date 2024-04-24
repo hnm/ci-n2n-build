@@ -3,15 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "dependencies": {
     "clean-css-cli": "^5.6.3",
-    "gulp-imagemin": "^7.1.0",
+    "gulp-imagemin": "^9.0",
     "gulp-uglify": "^3.0.2",
-    "gulp-uglify-es": "^3.0.0",
-    "npm": "^7.23.0"
+    "gulp-uglify-es": "^3.0.0"
   },
   "devDependencies": {
-    "gulp": "^4.0.2"
+    "gulp": "^5"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
