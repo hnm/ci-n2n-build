@@ -1,15 +1,13 @@
 import gulp from 'gulp';
 import imagemin from 'gulp-imagemin';
-import uglifyes from 'gulp-uglify-es';
-import uglyComposer from 'gulp-uglify/composer.js';
+import terser from 'gulp-terser';
 import exec from 'child_process';
 
-var uglify = uglyComposer(uglifyes, console);
 
 
 gulp.task('uglify-js', () => {
 	return gulp.src(['../target/public/assets/**/*.js', '!../target/public/assets/**/+(thirdparty|dist)/**', '!../target/public/assets/**/*.min.js'])
-			.pipe(uglify({ keep_classnames: true, keep_fnames: true }))
+			.pipe(terser({ keep_classnames: true, keep_fnames: true }))
 			.pipe(gulp.dest('../target/public/assets'));
 });
 
