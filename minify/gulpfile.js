@@ -13,7 +13,7 @@ gulp.task('uglify-js', () => {
 
 
 gulp.task('minify-images', () => {
-	return gulp.src(['../target/public/assets/**/*.png', '../target/public/assets/**/*.jpg', '../target/public/assets/**/*.jpeg'])
+	return gulp.src(['../target/public/assets/**/*.png', '../target/public/assets/**/*.jpg', '../target/public/assets/**/*.jpeg'], {encoding: false})
 			.pipe(imagemin())
 			.pipe(gulp.dest('../target/public/assets'))
 });
