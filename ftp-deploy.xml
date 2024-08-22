@@ -44,7 +44,7 @@
 		
 		<fail unless="project.setup">Project is not set up correctly!</fail>
 
-		<hnmftp host="${ftp.host}" user="${ftp.user}" password="${ftp.password}" ipV4="true" mode="ftp" verify="false">
+		<hnmftp host="${ftp.host}" user="${ftp.user}" password="${ftp.password}" ipV4="true" mode="ftps" verify="false">
 			<send remoteDir="${remote.public.dir}">
 				<ftpfileset dir="${deploy.dir}/${public.dirname}" dirPerm="${remote.public.dirperm}" filePerm="${remote.public.fileperm}">
 					<include name="**" />
