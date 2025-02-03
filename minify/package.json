@@ -5,9 +5,7 @@
   "main": "index.js",
   "type": "module",
   "dependencies": {
-    "clean-css-cli": "^5.6.3",
-    "gulp-imagemin": "^9.0",
-    "gulp-terser": "^2"
+    "gulp-imagemin": "^9.0"
   },
   "devDependencies": {
     "gulp": "^5"
