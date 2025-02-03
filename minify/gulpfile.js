@@ -24,6 +24,6 @@ gulp.task('minify-images', () => {
 // 	console.error(stderr);
 // 	cb(err);
 // });
-});
+// });
 
 gulp.task('minify', gulp.series(/*'uglify-js', 'minify-css',*/'minify-images'));
