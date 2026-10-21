@@ -19,7 +19,7 @@ n2n\core\TypeLoader::register(true,
 
 $envFilePath = $varPath . '/etc/.env';
 if (file_exists($envFilePath)) {
-	n2n\core\EnvLoader::load(new FsPath($envFilePath), true);
+	n2n\core\EnvLoader::load(new n2n\util\io\fs\FsPath($envFilePath), true);
 }
 
 n2n\core\N2N::initialize($pubPath, $varPath, new n2n\core\FileN2nCache());
