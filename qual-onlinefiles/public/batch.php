@@ -17,6 +17,10 @@ n2n\core\TypeLoader::register(true,
 	require __DIR__ . '/../vendor/composer/autoload_psr4.php',
 	require __DIR__ . '/../vendor/composer/autoload_classmap.php');
 
+$envFilePath = $varPath . '/etc/.env';
+if (file_exists($envFilePath)) {
+	n2n\core\EnvLoader::load(new FsPath($envFilePath), true);
+}
 
 n2n\core\N2N::initialize($pubPath, $varPath, new n2n\core\FileN2nCache());
 n2n\core\N2N::autoInvokeBatchJobs();
